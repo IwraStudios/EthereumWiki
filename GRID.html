@@ -28,6 +28,7 @@
 					/ 1fr 1fr 1fr;
 	grid-gap: 2rem;
 	padding: 32px;
+	align-items: stretch;
 }
 
 .head {
@@ -53,13 +54,18 @@ grid-area:foot;
   transition: .5s ease;
   backface-visibility: hidden;
 }
+.middlecontainer{
+position: absolute;
+ display: flex;
+ left: 50%;
+ width: 75%
 
+}
 .middle {
   transition: .5s ease;
   opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  z-index: 20;
+  right: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
 }
@@ -68,6 +74,10 @@ grid-area:foot;
 -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 -moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 400px;
 }
 
 .container:hover .image {
@@ -192,28 +202,39 @@ background: #ffffff;
    <div class="showcase">
 	  <div class="container" style="grid-area: img1">
 		  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image" style="width:100%"></img>
-		  <div class="middle">
-		  <p> F </p>
+		  <div class="middlecontainer">
+		  <p class="middle"> Showcase Item number 1 </p>
 	  </div>
 	  </div>
-	  <div class="container" style="grid-area: img2">
+	  <div class="container " style="grid-area: img2">
 		  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image" style="width:100%"></img>
-		  <div class="middle">
-		  <p> F </p>
+		  <div class="middlecontainer">
+		  <p class="middle"> Showcase Item number 2 </p>
 	  </div>
 	  </div>
-	  	  <div class="container" style="grid-area: img3">
+
+	 <div class="container" style="grid-area: img3">
 		  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image" style="width:100%"></img>
-		  <div class="middle">
-		  <p> F </p>
-	  </div>
+		  <div class="middlecontainer">
+		  <p class="middle"> And finally <br> Showcase Item number 3 </p>
+		  </div>
 	 </div>
+
 	 </div>
 	 <h3 id="two">The Revolution<h3>
 	 </article>
 	</div>
 	
  <script>
+ window.onload = function() {
+    if (window.jQuery) {  
+        // jQuery is loaded  
+    } else {
+        // jQuery is not loaded
+        alert("This browser is not supported, please download anything but IE");
+    }
+}
+ 
 var ToC =
   "<nav role='navigation' class='table-of-contents'>" +
     "<h2>On this page:</h2>" +

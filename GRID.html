@@ -7,15 +7,24 @@
 
 .wrapper{
   display: grid;
-  width: 80%;
+  width: 90%;
   height: 100%;
   grid-gap: 2rem;
 
-  grid-template: "head head" .8fr
+  grid-template: "head head" .4fr
                  "nav  main" 2fr
                  "nav  foot" 1fr
-				 / 0.4fr 1fr;
+				 / 0.5fr 1fr;
 				 
+}
+
+.sticky {
+	max-height: 50%;
+	position: sticky;
+	top: 50px;
+    -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+	-moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+	box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 }
 
 .showcase{
@@ -28,6 +37,48 @@
 	grid-gap: 2rem;
 	padding: 32px;
 	align-items: stretch;
+}
+
+@media only screen and (max-width:480px){
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+	   .wrapper{
+		  display: grid;
+		  width: 90%;
+		  height: 100%;
+		  grid-gap: 2rem;
+
+		  grid-template: "head head" .2fr
+						 "nav  nav" .5fr
+						 "main main" 2fr
+						 "foot foot" .5fr
+						 / 1fr 1fr;
+						 
+		}
+		
+	    .sticky {
+			width: 230%;
+			max-height: 90%;
+			display: block;
+			position: relative;
+			top: 15px;
+			-webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+			-moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+			box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+		}
+		
+		.showcase{
+			display:grid;
+			width: 50%;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			grid-template: "img1" 1fr
+							"img2" 1fr
+							"img3" 1fr
+							/ 1fr;
+			grid-gap: 2rem;
+			padding: 32px;
+			align-items: stretch;
+		}
 }
 
 .head {
@@ -99,22 +150,15 @@ box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
   }
   
   .nav {
-     -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
--moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+    -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+	-moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
+	box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 	position: flex;
 	
   }
 }
 
-.sticky {
-max-height: 80%;
-  position: sticky;
-  top: 15px;
-       -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
--moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
-}
+
 
 .container:hover .image {
   opacity: 0.3;
@@ -239,7 +283,7 @@ background: #ffffff;
 	  <div class="container" style="grid-area: img1">
 		  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbMr1RM-OjztT4eV_RtHTOU5a7OftxzVSMD89bPzI-_-S7cxU" alt="Avatar" class="image"></img>
 		  <div class="middlecontainer">
-		  <p class="middle"> Showcase Item number 1 </p>
+		  <p class="middle"> Vitalik Buterin </p>
 	  </div>
 	  </div>
 	  <div class="container " style="grid-area: img2">
@@ -285,7 +329,6 @@ At the time of public announcement in January 2014, the core Ethereum team was V
  
 var ToC =
   "<nav role='navigation' class='table-of-contents'>" +
-    "<h2>On this page:</h2>" +
     "<ul>";
 
 var newLine, el, title, link;

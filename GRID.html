@@ -5,11 +5,16 @@
 <meta charset="utf-8"/>
 <style>
 
+body{
+ margin: 0px;
+}
+
 .wrapper{
   display: grid;
-  width: 90%;
+  width: 100%;
   height: 100%;
   grid-gap: 2rem;
+  grid-row-gap: 0px;
 
   grid-template: "head head" .4fr
                  "nav  main" 2fr
@@ -22,14 +27,48 @@
 	max-height: 50%;
 	position: sticky;
 	top: 50px;
+	z-index: 20;
     -webkit-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 	-moz-box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 	box-shadow: 6px 7px 25px -8px rgba(0,0,0,0.65);
 }
 
+header {
+text-align: center;
+ background-color: #03A9F4;
+ border-radius: 5px;
+    -webkit-box-shadow: 6px 7px 25px -8px #BDBDBD;
+	-moz-box-shadow: 6px 7px 25px -8px #BDBDBD;
+	box-shadow: 6px 7px 25px -8px #BDBDBD;
+ width: 95%;
+ left: -5%;
+}
+
+article h3 {
+	color: #212121;
+	font-size: 13px;
+	padding-bottom: 16px;
+	padding-top: 8px;
+}
+
+article h4 {
+	color: #757575;
+}
+
+article h1 {
+ color: #FFFFFF;
+ padding: 8px;
+ margin-bottom: 0px;
+ padding-bottom: 0px;
+}
+
+article header h3 {
+	color: #B3E5FC;
+}
+
 .showcase{
 	display:grid;
-	width: 100%;
+	width: 85%;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	grid-template: "img1 img2 img3" 1fr
@@ -82,8 +121,13 @@
 }
 
 .head {
+width: 100%;
 grid-area: head;
 width: 100%;
+background-color: #B3E5FC;
+    -webkit-box-shadow: 6px 7px 15px -8px #BDBDBD;
+	-moz-box-shadow: 6px 7px 15px -8px #BDBDBD;
+	box-shadow: 6px 7px 15px -8px #BDBDBD;
 }
 
 .head_img{
@@ -275,7 +319,8 @@ background: #ffffff;
   <div class="main">
    <article>
    <header>
-   <h1>The idea is a unified database that can't be tampered with </h1>
+   <h1>The idea is a unified database that can't be tampered with</h1>
+   <h3>it's the future</h3>
    </header>
    <h3 id="one">Introduction</h3>
    The Ethereum Main Team:

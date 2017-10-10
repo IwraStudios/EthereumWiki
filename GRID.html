@@ -399,7 +399,7 @@ At the time of public announcement in January 2014, the core Ethereum team was V
 				toAdd += "<li>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
 			}
 			toAdd += "</ul></nav>";
-			$(".sticky").prepend();
+			$(".sticky").prepend(toAdd);
 		 });
     } else {
         // jQuery is not loaded

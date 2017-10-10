@@ -44,7 +44,7 @@ text-align: center;
  left: -5%;
 }
 
-article h3 {
+article h4 {
 	color: #212121;
 	font-size: 13px;
 	padding-bottom: 16px;
@@ -62,7 +62,7 @@ article h1 {
  padding-bottom: 0px;
 }
 
-article header h3 {
+article header h4 {
 	color: #B3E5FC;
 }
 
@@ -82,7 +82,7 @@ article header h3 {
        /* styles for mobile browsers smaller than 480px; (iPhone) */
 	   .wrapper{
 		  display: grid;
-		  width: 90%;
+		  width: 100%;
 		  height: 100%;
 		  grid-gap: 2rem;
 
@@ -122,8 +122,8 @@ article header h3 {
 
 .head {
 width: 100%;
+height: 80%;
 grid-area: head;
-width: 100%;
 background-color: #B3E5FC;
     -webkit-box-shadow: 6px 7px 15px -8px #BDBDBD;
 	-moz-box-shadow: 6px 7px 15px -8px #BDBDBD;
@@ -131,10 +131,14 @@ background-color: #B3E5FC;
 }
 
 .head_img{
+padding: 16px;
 width:auto;
 height: auto;
+left: 10%;
+height: 80%;
 position:relative;
 max-width: 100%;
+  object-fit: fit;
 
 }
 
@@ -175,6 +179,13 @@ position: absolute;
   position: absolute;
 }
 
+
+
+.table-of-contents{
+position: relative;
+left: 50%;
+width: 50%;
+}
 
 .container{
 	padding: 16px;
@@ -320,7 +331,7 @@ background: #ffffff;
    <article>
    <header>
    <h1>The idea is a unified database that can't be tampered with</h1>
-   <h3>it's the future</h3>
+   <h4>it's the future</h4>
    </header>
    <h3 id="one">Introduction</h3>
    The Ethereum Main Team:
@@ -363,9 +374,33 @@ At the time of public announcement in January 2014, the core Ethereum team was V
 	</div>
 	
  <script>
+  function GetSitemap(callback) {   
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'sitemap.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+ 
  window.onload = function() {
     if (window.jQuery) {  
         // jQuery is loaded  
+		 GetSitemap(function(response) {
+		  // Parse JSON string into object
+			var actual_JSON = JSON.parse(response);
+			var toAdd = "<nav class=\"table-of-pages\" role=\"navigation\"> <ul>";
+			actual_JSON.Keys.forEach(function(item){
+				toAdd += "<li>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
+			});
+			toAdd += "</ul></nav>";
+			$(".sticky").prepend();
+		 });
     } else {
         // jQuery is not loaded
         alert("This browser is not supported, please download anything but IE");

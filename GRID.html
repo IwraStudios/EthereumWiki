@@ -395,9 +395,9 @@ At the time of public announcement in January 2014, the core Ethereum team was V
 		  // Parse JSON string into object
 			var actual_JSON = JSON.parse(response);
 			var toAdd = "<nav class=\"table-of-pages\" role=\"navigation\"> <ul>";
-			actual_JSON.Keys.forEach(function(item){
+			for(item in actual_JSON){
 				toAdd += "<li>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
-			});
+			}
 			toAdd += "</ul></nav>";
 			$(".sticky").prepend();
 		 });

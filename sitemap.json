@@ -1,6 +1,10 @@
 {
-	"GRID":{
+	"GRID.html":{
 		"Name": "Main",
 		"Description": "The main page"
+	},
+	"EMPTY.html":{
+		"Name": "empty",
+		"Description": "The empty Pages"
 	}
 }

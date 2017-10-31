@@ -24,13 +24,15 @@ function GetSitemap(callback) {
 			}
 			toAdd += "</ul></nav>";
 			$(toAdd).insertAfter(".nav-head");
-		 });
+     });
+     addTitles();
     } else {
         // jQuery is not loaded
         alert("This browser is not supported, please download anything but IE");
     }
 }
  
+function addTitles(){
 var ToC =
   "<nav role='navigation' class='table-of-contents'>" +
     "<ul>";
@@ -95,3 +97,4 @@ $('a[href*="#"]')
       }
     }
   });
+}

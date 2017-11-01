@@ -19,8 +19,15 @@ function GetSitemap(callback) {
 		  // Parse JSON string into object
 			var actual_JSON = JSON.parse(response);
 			var toAdd = "<nav class=\"table-of-pages\" role=\"navigation\"> <ul>";
+			var path = window.location.pathname;
+			var page = path.split("/").pop();
+			console.log(page);
 			for(item in actual_JSON){
-				toAdd += "<li>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
+				if(item !== page && item !== page.split(".").slice(-1)){
+					toAdd += "<li>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
+				}else{
+					toAdd += "<li class='currentpage'>" + "<a href=\"" + item + "\">" + actual_JSON[item].Name +"</a></li>";
+				}
 			}
 			toAdd += "</ul></nav>";
 			$(toAdd).insertAfter(".nav-head");
@@ -30,6 +37,16 @@ function GetSitemap(callback) {
         // jQuery is not loaded
         alert("This browser is not supported, please download anything but IE");
     }
+	/*$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 500) {
+        $(".clearHeader").addClass("darkHeader");
+    } else {
+        $(".clearHeader").removeClass("darkHeader");
+    }
+});*/
+	
 }
  
 function addTitles(){

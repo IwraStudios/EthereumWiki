@@ -7,8 +7,12 @@
 		"Name": "RoadMap",
 		"Description":"The page with all the roadmaps"
 	},
-	"EMPTY.html":{
-		"Name": "empty",
-		"Description": "The empty Pages"
+	"TEAM.html":{
+		"Name": "The Team",
+		"Description": "What About the team"
+	},
+	"Origin.html":{
+		"Name": "Origin",
+		"Description": "Does anyone read these"
 	}
 }
